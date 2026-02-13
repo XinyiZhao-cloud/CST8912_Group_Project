@@ -72,27 +72,27 @@ Azure Blob Storage
 ## Work Plan by Phase (3 Phases)
 ### Phase 1 — Design + Research (Plan + Architecture)
 Deliverables
-	•	Application feature list + UI wireframe (high-level)
-	•	Highlight architecture diagram (cloud services + data flow)
-	•	Technology research: how each feature maps to Azure services
-	•	Basic data model draft (Cosmos DB: message schema, user/profile schema)
-	•	Risk list + decisions (e.g., AD B2C vs Entra External ID)
+- Application feature list + UI wireframe (high-level)
+- Highlight architecture diagram (cloud services + data flow)
+- Technology research: how each feature maps to Azure services
+- Basic data model draft (Cosmos DB: message schema, user/profile schema)
+- Risk list + decisions (e.g., AD B2C vs Entra External ID)
 Submission: Feb 20, Presentation: Feb 27
 
 ### Phase 2 — Implementation + Deployment (MVP Build)
 Deliverables
-	•	Working deployed MVP (frontend + backend)
-	•	User auth integrated (B2C / External ID)
-	•	Web PubSub real-time messaging integrated
-	•	Cosmos DB persistence for messages
-	•	Blob Storage upload + retrieval (files/images)
-	•	Deployment docs (how to run, environment variables)
+- Working on deployed MVP (frontend + backend)
+- User auth integrated (B2C / External ID)
+- Web PubSub real-time messaging integrated
+- Cosmos DB persistence for messages
+- Blob Storage upload + retrieval (files/images)
+- Deployment docs (how to run, environment variables)
 
 ### Phase 3 — Testing + Debugging + Documentation
 Deliverables
-	•	Functional testing (core flows + edge cases)
-	•	Performance/latency observations (basic)
-	•	Security checks (access control, file access patterns)
-	•	User manual (how to use the app)
-	•	Final report (architecture + deployment + testing summary)
+- Functional testing (core flows + edge cases)
+- Performance/latency observations (basic)
+- Security checks (access control, file access patterns)
+- User manual (how to use the app)
+- Final report (architecture + deployment + testing summary)
 
