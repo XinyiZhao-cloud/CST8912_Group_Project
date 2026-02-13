@@ -3,24 +3,13 @@
 Build a web-based chat application where users can exchange text messages and share images/documents, with real-time delivery and cloud storage.
 
 ```mermaid
-flowchart TB
-  U["Users (Browser)"] -->|"Sign-in / Sign-up"| ID["Azure AD B2C\nor\nMicrosoft Entra External ID"]
-
-  U -->|"HTTPS"| FE["Web Frontend\n(Static Web App or App Service)"]
-  FE -->|"API calls (HTTPS)"| API["Backend API\n(App Service / Container Apps)"]
-
-  U -->|"WebSocket"| WPS["Azure Web PubSub\n(Real-time messaging)"]
-  WPS -->|"Events / messages"| API
-
-  API --> DB[("Azure Cosmos DB\n(Messages + Profiles + Metadata)")]
-  API --> BL[("Azure Blob Storage\n(Images / Documents)")]
-
-  DB -->|"File URLs / metadata"| API
-  BL -->|"SAS / secure URL"| U
-
-  API --> MON["Azure Monitor / App Insights"]
-  WPS --> MON
-  FE --> MON
+flowchart LR
+  U["Users"] --> ID["Auth\n(B2C / External ID)"]
+  U --> WPS["Web PubSub\n(WebSocket)"]
+  U --> FE["Frontend"]
+  FE --> API["Backend API"]
+  API --> DB["Cosmos DB\n(Chat + user data)"]
+  API --> BL["Blob Storage\n(Files)"]
 ```
 ## Proposed Azure Technologies
 - Identity & User Management:
