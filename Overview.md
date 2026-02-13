@@ -4,12 +4,12 @@ Build a web-based chat application where users can exchange text messages and sh
 
 ```mermaid
 flowchart LR
-  U["Users"] --> ID["Auth\n(B2C / External ID)"]
-  U --> WPS["Web PubSub\n(WebSocket)"]
+  U["Users"] --> ID["Auth(B2C / External ID)"]
+  U --> WPS["Web PubSub(WebSocket)"]
   U --> FE["Frontend"]
   FE --> API["Backend API"]
-  API --> DB["Cosmos DB\n(Chat + user data)"]
-  API --> BL["Blob Storage\n(Files)"]
+  API --> DB["Cosmos DB(Chat + user data)"]
+  API --> BL["Blob Storage(Files)"]
 ```
 ## Proposed Azure Technologies
 - Identity & User Management:
