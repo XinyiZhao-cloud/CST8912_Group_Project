@@ -28,7 +28,7 @@ flowchart TB
   end
 
   %% ========== Observability ==========
-  subgraph Obs["Monitoring"]
+  subgraph Obs["Monitoring Optional for Phase 3"]
     MON["Azure Monitor / Application Insights"]
   end
 
