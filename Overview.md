@@ -4,20 +4,21 @@ Build a web-based chat application where users can exchange text messages and sh
 
 ```mermaid
 flowchart TB
-  U[Users / Browser] -->|Sign-in / Sign-up| ID[Azure AD B2C<br/>or Entra External ID]
+  U["Users (Browser)"] -->|"Sign-in / Sign-up"| ID["Azure AD B2C\nor\nMicrosoft Entra External ID"]
 
-  U -->|HTTPS| FE[Web Frontend<br/>(Static Web App or App Service)]
-  FE -->|API calls (HTTPS)| API[Backend API<br/>(App Service or Container App)]
+  U -->|"HTTPS"| FE["Web Frontend\n(Static Web App or App Service)"]
+  FE -->|"API calls (HTTPS)"| API["Backend API\n(App Service / Container Apps)"]
 
-  U -->|WebSocket| WPS[Azure Web PubSub<br/>(Real-time messaging)]
-  WPS -->|Events / messages| API
+  U -->|"WebSocket"| WPS["Azure Web PubSub\n(Real-time messaging)"]
+  WPS -->|"Events / messages"| API
 
-  API --> DB[(Azure Cosmos DB<br/>Messages + Profiles + Metadata)]
-  API --> BL[(Azure Blob Storage<br/>Images / Documents)]
-  DB -->|File URLs / metadata| API
-  BL -->|SAS / secure URL| U
+  API --> DB[("Azure Cosmos DB\n(Messages + Profiles + Metadata)")]
+  API --> BL[("Azure Blob Storage\n(Images / Documents)")]
 
-  API --> MON[Azure Monitor / App Insights]
+  DB -->|"File URLs / metadata"| API
+  BL -->|"SAS / secure URL"| U
+
+  API --> MON["Azure Monitor / App Insights"]
   WPS --> MON
   FE --> MON
 ```
