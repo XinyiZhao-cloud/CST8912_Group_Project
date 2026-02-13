@@ -3,13 +3,49 @@
 Build a web-based chat application where users can exchange text messages and share images/documents, with real-time delivery and cloud storage.
 
 ```mermaid
-flowchart LR
-  U["Users"] --> ID["Auth(B2C / External ID)"]
-  U --> WPS["Web PubSub(WebSocket)"]
-  U --> FE["Frontend"]
-  FE --> API["Backend API"]
-  API --> DB["Cosmos DB(Chat + user data)"]
-  API --> BL["Blob Storage(Files)"]
+flowchart TB
+  %% ========== Client Layer ==========
+  subgraph Client["Client"]
+    U["Web Browser / Mobile Browser"]
+  end
+
+  %% ========== Identity ==========
+  subgraph Identity["Identity"]
+    ID["Azure AD B2C / Entra External ID"]
+  end
+
+  %% ========== App Layer ==========
+  subgraph App["Application Layer"]
+    FE["Frontend (Static Web App / App Service)"]
+    API["Backend API (App Service / Container Apps)"]
+    WPS["Azure Web PubSub (WebSocket)"]
+  end
+
+  %% ========== Data Layer ==========
+  subgraph Data["Data Layer"]
+    DB["Cosmos DB (chat messages, profiles, metadata)"]
+    BL["Blob Storage (images, documents)"]
+  end
+
+  %% ========== Observability ==========
+  subgraph Obs["Monitoring"]
+    MON["Azure Monitor / Application Insights"]
+  end
+
+  %% Flows
+  U -->|"Sign in / Sign up"| ID
+  U -->|"HTTPS"| FE
+  FE -->|"HTTPS (REST API)"| API
+  U -->|"WebSocket"| WPS
+  WPS -->|"Push message events"| U
+  WPS -->|"Event handler / route"| API
+
+  API -->|"Read / write"| DB
+  API -->|"Upload / download"| BL
+
+  FE --> MON
+  API --> MON
+  WPS --> MON
 ```
 ## Proposed Azure Technologies
 - Identity & User Management:
