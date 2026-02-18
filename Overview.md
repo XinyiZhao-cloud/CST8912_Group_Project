@@ -68,6 +68,8 @@ Azure Blob Storage
 	•	User profile editing
 	•	Upload + store images/documents in the cloud
 	•	Chat history persistence (view previous messages)
+	•	* Extended feature: Post and Comment
+	
 
 ## Work Plan by Phase (3 Phases)
 ### Phase 1 — Design + Research (Plan + Architecture)
@@ -87,6 +89,7 @@ Deliverables
 - Cosmos DB persistence for messages
 - Blob Storage upload + retrieval (files/images)
 - Deployment docs (how to run, environment variables)
+- Optional: Extend the feature which allows users to post and comment
 
 ### Phase 3 — Testing + Debugging + Documentation
 Deliverables
